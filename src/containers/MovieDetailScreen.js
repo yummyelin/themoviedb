@@ -48,7 +48,7 @@ class MovieDetailScreen extends React.Component {
             <Text>{data.vote_count} Votes</Text>
             <Text>Popularity {data.popularity ? data.popularity.toFixed(2) : 0}</Text>
           </Button>
-          <Text style={{ color: '#87838B' }}>Genre: {data.genre_ids}</Text>{/* TODO */}
+          <Text style={{ color: '#87838B' }}>Genre: {data.genre_ids}</Text>
         </Body>
       </CardItem>
     </Card>

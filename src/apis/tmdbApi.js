@@ -1,5 +1,8 @@
-import { API_BASE, API_KEY, NOWPLAYING_ID, UPCOMING_ID, ACCESS_TOKEN } from '../utils/constants';
 import queryString from 'query-string';
+import {
+  // API_BASE, NOWPLAYING_ID, UPCOMING_ID,
+  API_KEY, ACCESS_TOKEN
+} from '../utils/constants';
 
 // const optionsGet = (params = {}) => ({
 //   method: 'GET',
@@ -25,7 +28,7 @@ import queryString from 'query-string';
 // });
 
 function parseJSON(response) {
-  const contentType = response.headers.get("content-type");
+  const contentType = response.headers.get('content-type');
   if (contentType.includes('json')) return response.json();
   else if (contentType.includes('html') || contentType.includes('pdf')) return response.text();
   return response.json();
@@ -44,12 +47,11 @@ function checkStatus(response) {
 
 function reportNetworkError(err) {
   console.warn(err);
-  window.alert(`Network Error`, err);
+  window.alert('Network Error', err);
   return Promise.reject(err);
 }
 
-function request(endpoint, options) {
-  const url = `${API_BASE}${endpoint}`;
+function request(url, options) {
   return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON)
@@ -59,35 +61,47 @@ function request(endpoint, options) {
 export function getNowPlayingList(params = {}) {
   let queryParams = params;
   if (typeof params === 'object') {
-    params.api_key = API_KEY;
+    queryParams.api_key = API_KEY;
     queryParams = queryString.stringify(params);
   }
 
-  const endpoint = `/list/${NOWPLAYING_ID}?${queryParams}`;
+  // const endpoint = `/list/${NOWPLAYING_ID}?${queryParams}`;
+  // const url = `${API_BASE}${endpoint}`;
+  const url = `http://api.themoviedb.org/3/movie/now_playing?${queryParams}`;
   const options = {
     method: 'GET',
     headers: {
-      'Authorization': ACCESS_TOKEN,
+      Authorization: ACCESS_TOKEN,
       'Content-Type': 'application/json; charset=utf-8',
     },
   };
-  return request(endpoint, options);
+  return request(url, options);
 }
 
 export function getUpcomingList(params = {}) {
   let queryParams = params;
   if (typeof params === 'object') {
-    params.api_key = API_KEY;
+    queryParams.api_key = API_KEY;
     queryParams = queryString.stringify(params);
   }
 
-  const endpoint = `/list/${UPCOMING_ID}?${queryParams}`;
+  // const endpoint = `/list/${UPCOMING_ID}?${queryParams}`;
+  // const url = `${API_BASE}${endpoint}`;
+  const url = `http://api.themoviedb.org/3/movie/upcoming?${queryParams}`;
   const options = {
     method: 'GET',
     headers: {
-      'Authorization': ACCESS_TOKEN,
+      Authorization: ACCESS_TOKEN,
       'Content-Type': 'application/json; charset=utf-8',
     },
   };
-  return request(endpoint, options);
+  return request(url, options);
+}
+
+export function getConfiguration() { // TODO: https://api.themoviedb.org/3/configuration?api_key=
+  return Promise.resolve();
+}
+
+export function getGenre() { // TODO: https://api.themoviedb.org/3/genre/movie/list
+  return Promise.resolve();
 }

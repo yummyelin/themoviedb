@@ -43,7 +43,7 @@ class MovieListScreen extends React.Component {
         </Text>
       </Body>
       <Right>
-        <Text note >Genre {item.genre_ids}</Text>{/* TODO */}
+        <Text note >Genre {item.genre_ids}</Text>
       </Right>
     </ListItem>
   )
