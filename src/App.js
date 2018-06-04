@@ -28,30 +28,18 @@ import { Provider } from 'react-redux';
 // } from 'react-navigation-redux-helpers';
 // import Tabs from 'react-native-tabs';
 import store from './store/store';
-import NowPlayingScreen from './containers/NowPlayingScreen';
-import UpcomingScreen from './containers/UpcomingScreen';
+import MovieListScreen from './containers/MovieListScreen';
+import MovieDetailScreen from './containers/MovieDetailScreen';
 import FooterBar from './components/FooterBar';
 // import createReducer from './reducers';
 
 const AppNavigator = createTabNavigator({
-  NowPlaying: {
-    screen: NowPlayingScreen,
-  },
-  Upcoming: {
-    screen: UpcomingScreen,
-  },
+  NowPlaying: { screen: MovieListScreen },
+  Upcoming: { screen: MovieListScreen },
+  MovieDetail: { screen: MovieDetailScreen },
 }, {
   tabBarPosition: 'top',
   swipeEnabled: true,
-  tabBarOptions: {
-    activeTintColor: '#f2f2f2',
-    activeBackgroundColor: '#2EC4B6',
-    inactiveTintColor: '#666',
-    labelStyle: {
-      fontSize: 15,
-      padding: 4
-    }
-  },
   tabBarComponent: props => (
     <FooterBar props={props} />
   ),

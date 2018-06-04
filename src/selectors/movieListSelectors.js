@@ -15,3 +15,5 @@ export const selectUpcomingMoviesArray = createSelector(
   selectUpcomingList,
   movies => movies.get('results', List())
 );
+
+export const selectIsLoading = state => state.getIn(['home', 'isLoading'], false);

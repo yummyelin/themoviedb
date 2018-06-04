@@ -8,7 +8,6 @@ const initialState = fromJS({
 });
 
 export default function (state: any = initialState, action: Function) {
-  // console.warn(action.type, action);
   switch (action.type) {
     case 'FETCH_NOWPLAYING':
       return state.set('isLoading', true)
@@ -29,6 +28,7 @@ export default function (state: any = initialState, action: Function) {
     case 'FETCH_UPCOMING_FAIL':
       return state.set('isLoading', false)
         .set('error', fromJS(action.error));
+
     default:
       return state;
   }
