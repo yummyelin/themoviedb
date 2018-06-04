@@ -1,6 +1,4 @@
-The Movie DB app
-
-Author: Yilin Gan
+# The Movie DB app
 
 ## Included
 
@@ -20,11 +18,16 @@ to install requirement tools.
 
 ```bash
 $ npm install -g react-native-cli
-$ brew update && brew cask install react-native-debugger
 $ npm install
 ```
 
 ## Development
+
+```bash
+$ brew update && brew cask install react-native-debugger
+$ npm install
+$ npm run debug
+```
 
 #### Start local server
 
@@ -34,22 +37,21 @@ $ npm start
 
 #### Android
 
-Open Android emulator (recommended [Genymotion](https://www.genymotion.com)) and
-run command: (Or connect real device via USB)
+1. Open Android emulator (recommended [Genymotion](https://www.genymotion.com)) and
+run command:
 
 ```bash
 $ npm run android
 ```
+2. Or connect real device via USB
 
 ## DevTools
 
 * [React Native Debugger](https://github.com/jhen0409/react-native-debugger)
 
-<!-- ## Test
+## Author
 
-```bash
-$ npm test
-``` -->
+**Yilin Gan** - [yummyelin](https://github.com/yummyelin)
 
 ## LICENSE
 

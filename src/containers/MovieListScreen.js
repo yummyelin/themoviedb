@@ -22,6 +22,7 @@ import {
   selectUpcomingMoviesArray,
   selectIsLoading
 } from '../selectors/movieListSelectors';
+import { BASE_URL, POSTER_SIZE } from '../utils/constants';
 
 class MovieListScreen extends React.Component {
   componentDidMount() {
@@ -34,7 +35,7 @@ class MovieListScreen extends React.Component {
 
   renderListItem = (item, key) => (
     <ListItem key={key} onPress={() => this.props.navigation.navigate('MovieDetail', item)}>
-      <Thumbnail square size={80} source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }} />
+      <Thumbnail square size={80} source={{ uri: `${BASE_URL}${POSTER_SIZE}${item.poster_path}` }} />
       <Body>
         <Text>{item.title}</Text>
         <Text note>
@@ -42,7 +43,7 @@ class MovieListScreen extends React.Component {
         </Text>
       </Body>
       <Right>
-        <Text note >Genre {item.genre_ids}</Text>
+        <Text note >Genre {item.genre_ids}</Text>{/* TODO */}
       </Right>
     </ListItem>
   )

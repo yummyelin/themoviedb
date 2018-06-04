@@ -26,7 +26,6 @@ import { Provider } from 'react-redux';
 //   initializeListeners, // handles #4 above
 //   createReduxBoundAddListener,
 // } from 'react-navigation-redux-helpers';
-// import Tabs from 'react-native-tabs';
 import store from './store/store';
 import MovieListScreen from './containers/MovieListScreen';
 import MovieDetailScreen from './containers/MovieDetailScreen';
@@ -34,9 +33,15 @@ import FooterBar from './components/FooterBar';
 // import createReducer from './reducers';
 
 const AppNavigator = createTabNavigator({
-  NowPlaying: { screen: MovieListScreen },
-  Upcoming: { screen: MovieListScreen },
-  MovieDetail: { screen: MovieDetailScreen },
+  NowPlaying: {
+    screen: MovieListScreen
+  },
+  Upcoming: {
+    screen: MovieListScreen
+  },
+  MovieDetail: {
+    screen: MovieDetailScreen
+  },
 }, {
   tabBarPosition: 'top',
   swipeEnabled: true,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Footer, FooterTab,
@@ -9,7 +9,7 @@ import {
 
 import styles from './styles';
 
-class FooterBar extends Component { //eslint-disable-line
+class FooterBar extends React.Component { //eslint-disable-line
   render() {
     const { props } = this.props;
     return (

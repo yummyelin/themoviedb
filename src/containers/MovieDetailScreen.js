@@ -16,13 +16,14 @@ import {
   Button,
   // Icon,
 } from 'native-base';
+import { BASE_URL, POSTER_SIZE } from '../utils/constants';
 
 class MovieDetailScreen extends React.Component {
   renderCard = data => (
     <Card style={{ flex: 0 }}>
       <CardItem>
         <Left>
-          <Thumbnail source={{ uri: `https://image.tmdb.org/t/p/w500${data.poster_path}` }} />
+          <Thumbnail source={{ uri: `${BASE_URL}${POSTER_SIZE}${data.poster_path}` }} />
           <Body>
             <Text>{data.title}</Text>
             <Text note>({data.release_date})</Text>
@@ -32,7 +33,10 @@ class MovieDetailScreen extends React.Component {
       </CardItem>
       <CardItem>
         <Body>
-          {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500${data.backdrop_path}` }} style={{ height: 200, width: 500, flex: 1 }} /> */}
+          {/* <Image
+            source={{ uri: `${BASE_URL}${BACKDROP_SIZE}${data.backdrop_path}` }}
+            style={{ height: 200, width: 500, flex: 1 }}
+          /> */}
           <Text>
             {data.overview}
           </Text>
@@ -44,7 +48,7 @@ class MovieDetailScreen extends React.Component {
             <Text>{data.vote_count} Votes</Text>
             <Text>Popularity {data.popularity ? data.popularity.toFixed(2) : 0}</Text>
           </Button>
-          <Text style={{ color: '#87838B' }}>Genre: {data.genre_ids}</Text>
+          <Text style={{ color: '#87838B' }}>Genre: {data.genre_ids}</Text>{/* TODO */}
         </Body>
       </CardItem>
     </Card>
