@@ -1,1 +1,1 @@
-export const formatDate = (date) => ''; // TODO
+export const formatDate = date => ''; // TODO
